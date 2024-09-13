@@ -3,12 +3,12 @@
 namespace App\Listeners;
 
 use App\Events\BookingCreated;
-use App\Jobs\NotifyAdminOfBooking;
+use App\Jobs\SendBookingConfirmation;
 
 class NotifyAdminOfBooking
 {
     public function handle(BookingCreated $event)
     {
-        NotifyAdminOfBooking::dispatch($event->booking);
+        SendBookingConfirmation::dispatch($event->booking);
     }
 }
